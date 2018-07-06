@@ -26,10 +26,32 @@ superheroes.push({
     superName: 'Batman'
 });
 document.write(superheroes[0].realName + " is " + superheroes[0].superName + "<br />");
-//math
+// Math
 document.write("5 + 4 = " + (5 + 4) + "<br />");
 document.write("5 - 4 = " + (5 - 4) + "<br />");
 document.write("5 * 4 = " + (5 * 4) + "<br />");
 document.write("5 / 4 = " + (5 / 4) + "<br />");
 document.write("5 % 4 = " + (5 % 4) + "<br />");
 document.write("5 + String 2 = " + (5 + '2') + "<br />");
+var randNum = 1;
+document.write("randNum++ = " + randNum++ + "<br />");
+document.write("++randNum = " + ++randNum + "<br />");
+document.write("randNum-- = " + randNum-- + "<br />");
+document.write("--randNum = " + --randNum + "<br />");
+// Conditional Statemetns
+var sampLet = 123;
+if (true) {
+    var sampLet_1 = 456;
+}
+document.write("samplet : " + sampLet + "<br />");
+// differnece with Var
+var sampLet = 123;
+if (true) {
+    var sampLet = 456;
+}
+document.write("samplet : " + sampLet + "<br />");
+// Array
+var randArray = [5, 6, 7, 8];
+for (var val in randArray) {
+    document.write(val + "<br />");
+}
