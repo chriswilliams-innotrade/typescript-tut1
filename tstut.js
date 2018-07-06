@@ -106,7 +106,7 @@ var Animal = /** @class */ (function () {
         Animal.numOfAnimals++;
     }
     Animal.prototype.ownerInfo = function () {
-        document.write(this.name + " is owned by " + this.owner + "<br />;");
+        document.write(this.name + " is owned by " + this.owner + "<br />");
     };
     Animal.howManyAnimals = function () {
         return Animal.numOfAnimals;
@@ -128,7 +128,7 @@ var Animal = /** @class */ (function () {
 var spot = new Animal("Spot", "Doug");
 spot.ownerInfo();
 spot.weight = 100;
-document.write("Spot Weight is : " + spot.weight + "<br />");
+document.write("Spot's Weight is : " + spot.weight + "<br />");
 document.write("# of Animals : " + Animal.howManyAnimals() + "<br />");
 // Sub classes to inherit methods and fields from another class with operator extend 
 var Dog = /** @class */ (function (_super) {
@@ -143,9 +143,7 @@ var Dog = /** @class */ (function (_super) {
     return Dog;
 }(Animal));
 var grover = new Dog("Grover", "Jimmy");
-grover.ownerInfo();
 document.write("# of Animals : " + Animal.howManyAnimals() + "<br />");
-document.write("Is a Dog an Animal : " + grover instanceof Animal) + "<br />";
-;
-document.write("Does grover have a name : "('name' in grover) + "<br />");
+document.write("Is a Dog an Animal : " + (grover instanceof Animal) + "<br />");
+document.write("Does grover have a name : " + ('name' in grover) + "<br />");
 // Interfaces

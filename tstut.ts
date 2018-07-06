@@ -160,10 +160,10 @@ class Animal{
         Animal.numOfAnimals++;
     }
     ownerInfo(){
-        document.write(this.name + " is owned by " + this.owner + "<br />;")
+        document.write(this.name + " is owned by " + this.owner + "<br />")
     }
     static howManyAnimals(): number{
-        return Animal.numOfAnimals
+        return Animal.numOfAnimals;
     }
 
     private _weight: number;
@@ -185,7 +185,7 @@ spot.ownerInfo();
 
 spot.weight = 100;
 
-document.write("Spot Weight is : " + spot.weight + "<br />");
+document.write("Spot's Weight is : " + spot.weight + "<br />");
 
 document.write("# of Animals : " + Animal.howManyAnimals() + "<br />");
 
@@ -200,11 +200,11 @@ class Dog extends Animal{
 
 var grover = new Dog("Grover", "Jimmy");
 
-grover.ownerInfo();
-
 document.write("# of Animals : " + Animal.howManyAnimals() + "<br />");
-document.write("Is a Dog an Animal : " + grover instanceof Animal) +  "<br />");
-document.write("Does grover have a name : " ('name' in grover) +  "<br />");
+
+document.write("Is a Dog an Animal : " + (grover instanceof Animal) +  "<br />");
+
+document.write("Does grover have a name : " + ('name' in grover) +  "<br />");
 
 
 // Interfaces
