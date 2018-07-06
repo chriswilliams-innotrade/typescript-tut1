@@ -209,5 +209,120 @@ document.write("Does grover have a name : " + ('name' in grover) +  "<br />");
 
 // Interfaces
 
+interface Vehicle {
+    drive(): any;
+}
+
+class Car implements Vehicle{
+    constructor(private wheels: number){}
+
+    drive(): void{
+        document.write("The car drives with " + this.wheels + " wheels <br />");
+    }
+}
+
+class Bicycle implements Vehicle{
+    constructor(private wheels: number){}
+
+    drive(): void{
+        document.write("The bicycle drives with " + this.wheels + " wheels <br />");
+    }
+}
+
+var car = new Car(4);
+var bike = new Bicycle(2);
+
+car.drive();
+bike.drive();
 
 
+// Generic Functions
+
+function GetType<T>(val: T): string{
+    return typeof(val);
+}
+
+var aStr = "A String";
+var aNum = 10;
+
+document.write(GetType(aStr) + "<br />");
+document.write(GetType(aNum) + "<br />");
+
+
+function GetWheels<w extends Vehicle>(veh: w): number{
+    return veh.drive();
+}
+
+GetWheels(car);
+GetWheels(bike);
+
+// ----- Generic Classes -----
+
+class GenericNumber<T>{
+    add: (val1: T, val2: T) => T;
+}
+
+var aNumber = new GenericNumber<number>();
+
+aNumber.add = function(x, y){return x + y;};
+
+document.write("5 + 4 = " + aNumber.add(5, 4) +"<br />");
+
+
+// --- String ---
+
+var aStrNum = new GenericNumber<string>();
+
+aStrNum.add = function(x, y){return String(Number(x) + Number(y));};
+
+document.write("5 + 6 = " + aStrNum.add("5", "6") + "<br />");
+
+// Destructuring
+
+var randVals = {x: 1, y: 2, z: 3};
+
+var {x, y, z} = randVals;
+
+document.write(x + y + z + "<br />");
+
+
+[x, y, z] = [z, y, x];
+
+document.write("Switch : " + x + y + z + "<br />");
+
+
+
+// Template Strings
+
+var multStr = `I go on for many lines<br />`;
+document.write(multStr);
+
+document.write(`<b>${multStr}</b>`);
+
+
+// Spread Operator
+
+function theSum(x, y, z): void{
+    document.write("Sum : " + (x + y + z) + "<br />");
+}
+
+var args = [4, 5, 6];
+
+theSum(...args);
+
+
+// enum Types
+
+enum Emotion {
+    Happy = 1,
+    Sad,
+    Angry
+}
+
+var myFeeling = Emotion.Happy;
+
+myFeeling = 1;
+
+document.write("My Feeling is : " Emotion.Angry + "<br />");
+document.write("My Feeling is : " Emotion.Happy + "<br />");
+document.write("My Feeling is : " Emotion.Sad + "<br />");

@@ -8,6 +8,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var _a;
 // Variables
 var myName = "Chris";
 var myAge = 34;
@@ -146,4 +147,79 @@ var grover = new Dog("Grover", "Jimmy");
 document.write("# of Animals : " + Animal.howManyAnimals() + "<br />");
 document.write("Is a Dog an Animal : " + (grover instanceof Animal) + "<br />");
 document.write("Does grover have a name : " + ('name' in grover) + "<br />");
-// Interfaces
+var Car = /** @class */ (function () {
+    function Car(wheels) {
+        this.wheels = wheels;
+    }
+    Car.prototype.drive = function () {
+        document.write("The car drives with " + this.wheels + " wheels <br />");
+    };
+    return Car;
+}());
+var Bicycle = /** @class */ (function () {
+    function Bicycle(wheels) {
+        this.wheels = wheels;
+    }
+    Bicycle.prototype.drive = function () {
+        document.write("The bicycle drives with " + this.wheels + " wheels <br />");
+    };
+    return Bicycle;
+}());
+var car = new Car(4);
+var bike = new Bicycle(2);
+car.drive();
+bike.drive();
+// Generic Functions
+function GetType(val) {
+    return typeof (val);
+}
+var aStr = "A String";
+var aNum = 10;
+document.write(GetType(aStr) + "<br />");
+document.write(GetType(aNum) + "<br />");
+function GetWheels(veh) {
+    return veh.drive();
+}
+GetWheels(car);
+GetWheels(bike);
+// ----- Generic Classes -----
+var GenericNumber = /** @class */ (function () {
+    function GenericNumber() {
+    }
+    return GenericNumber;
+}());
+var aNumber = new GenericNumber();
+aNumber.add = function (x, y) { return x + y; };
+document.write("5 + 4 = " + aNumber.add(5, 4) + "<br />");
+// --- String ---
+var aStrNum = new GenericNumber();
+aStrNum.add = function (x, y) { return String(Number(x) + Number(y)); };
+document.write("5 + 6 = " + aStrNum.add("5", "6") + "<br />");
+// Destructuring
+var randVals = { x: 1, y: 2, z: 3 };
+var x = randVals.x, y = randVals.y, z = randVals.z;
+document.write(x + y + z + "<br />");
+_a = [z, y, x], x = _a[0], y = _a[1], z = _a[2];
+document.write("Switch : " + x + y + z + "<br />");
+// Template Strings
+var multStr = "I go on for many lines<br />";
+document.write(multStr);
+document.write("<b>" + multStr + "</b>");
+// Spread Operator
+function theSum(x, y, z) {
+    document.write("Sum : " + (x + y + z) + "<br />");
+}
+var args = [4, 5, 6];
+theSum.apply(void 0, args);
+// enum Types
+var Emotion;
+(function (Emotion) {
+    Emotion[Emotion["Happy"] = 1] = "Happy";
+    Emotion[Emotion["Sad"] = 2] = "Sad";
+    Emotion[Emotion["Angry"] = 3] = "Angry";
+})(Emotion || (Emotion = {}));
+var myFeeling = Emotion.Happy;
+myFeeling = 1;
+document.write("My Feeling is : ", Emotion.Angry + "<br />");
+document.write("My Feeling is : ", Emotion.Happy + "<br />");
+document.write("My Feeling is : ", Emotion.Sad + "<br />");
